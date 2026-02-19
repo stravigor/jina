@@ -17,8 +17,6 @@ import type { JinaActions } from './types.ts'
  *   updatePassword: async (user, pw) => { user.password = await encrypt.hash(pw); await user.save() },
  * })
  */
-export function defineActions<TUser = unknown>(
-  actions: JinaActions<TUser>
-): JinaActions<TUser> {
+export function defineActions<TUser = unknown>(actions: JinaActions<TUser>): JinaActions<TUser> {
   return actions
 }

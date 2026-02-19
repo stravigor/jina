@@ -141,10 +141,7 @@ export default class JinaManager {
 
     router.group({ prefix, middleware }, r => {
       if (enabled('registration')) {
-        r.post(
-          '/register',
-          withMiddleware([guest(), JinaManager.rl('register')], registerHandler)
-        )
+        r.post('/register', withMiddleware([guest(), JinaManager.rl('register')], registerHandler))
       }
 
       if (enabled('login')) {
