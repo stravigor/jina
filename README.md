@@ -27,10 +27,12 @@ const actions = defineActions<User>({
 })
 ```
 
+Add to `start/providers.ts`:
+
 ```ts
 import { JinaProvider } from '@stravigor/jina'
 
-app.use(new JinaProvider(actions))
+new JinaProvider(actions),
 ```
 
 ## Routes

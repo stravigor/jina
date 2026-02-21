@@ -71,11 +71,13 @@ The `defineActions<TUser>()` helper is a typed identity function — it provides
 
 ### 2. Register the provider
 
+Add to `start/providers.ts`:
+
 ```typescript
 import { JinaProvider } from '@stravigor/jina'
 import actions from './actions/jina'
 
-app.use(new JinaProvider(actions))
+new JinaProvider(actions),
 ```
 
 The `JinaProvider` depends on: `auth`, `session`, `encryption`, `mail`. It registers `JinaManager` as a singleton, validates that all required actions are present for enabled features, and registers routes automatically.
@@ -610,8 +612,8 @@ import { auth, csrf } from '@stravigor/core/auth'
 import { JinaProvider, verified, confirmed } from '@stravigor/jina'
 import actions from './actions/jina'
 
-// Register the provider
-app.use(new JinaProvider(actions))
+// In start/providers.ts
+new JinaProvider(actions),
 
 // Jina auto-registers its routes (POST /login, POST /register, etc.)
 // Add session middleware globally so Jina routes have access
